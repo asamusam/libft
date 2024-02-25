@@ -6,23 +6,31 @@
 /*   By: asamuilk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:22:55 by asamuilk          #+#    #+#             */
-/*   Updated: 2024/02/25 17:11:54 by asamuilk         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:29:44 by asamuilk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// Available formats:
-// • c - character;
-// • s - string;
-// • p - pointer (hexadecimal long long unsigned integer);
-// • d - decimal integer;
-// • i - decimal integer;
-// • u - unsigned decimal integer;
-// • x - hexadecimal integer;
-// • X - uppercase hexadecimal integer;
-// • % - percent sign.
-
+/*
+ * Function: ft_printf
+ * ----------------------------
+ * Prints output according to a format string.
+ *
+ * Available format specifiers:
+ * %c - character;
+ * %s - string;
+ * %p - pointer (hexadecimal long long unsigned integer);
+ * %d - decimal integer;
+ * %i - decimal integer;
+ * %u - unsigned decimal integer;
+ * %x - hexadecimal integer;
+ * %X - uppercase hexadecimal integer;
+ * %% - percent sign.
+ * 
+ * Returns:
+ * Number of bytes printed.
+ */
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
