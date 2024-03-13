@@ -6,7 +6,7 @@
 /*   By: asamuilk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:50:48 by asamuilk          #+#    #+#             */
-/*   Updated: 2024/02/25 21:03:50 by asamuilk         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:17:35 by asamuilk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,14 @@ char	*push_remainder(char *rem, char *add, int n)
 	return (res - rem_len - add_len);
 }
 
+// frees allocated buffer and remainder
+int	free_buf_rem(char **rem, char *buf)
+{
+	free(*rem);
+	free(buf);
+	return (-2);
+}
+
 // reads file until a newline or EOF
 // returns index of the first newline,
 // -1 if no newline, -2 on EOF and empty rem or on error
@@ -106,11 +114,7 @@ int	read_buffer(char **rem, int fd)
 			return (-2);
 		r = read(fd, buf, BUFFER_SIZE);
 		if (r < 0 || (r == 0 && **rem == 0))
-		{
-			free(*rem);
-			free(buf);
-			return (-2);
-		}
+			return (free_buf_rem(rem, buf));
 		*rem = push_remainder(*rem, buf, r);
 		nl = has_newline(*rem);
 	}
