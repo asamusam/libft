@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asamuilk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 13:17:56 by asamuilk          #+#    #+#             */
-/*   Updated: 2024/03/29 18:05:57 by asamuilk         ###   ########.fr       */
+/*   Created: 2024/03/29 18:02:03 by asamuilk          #+#    #+#             */
+/*   Updated: 2024/03/29 18:02:46 by asamuilk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
- * Function: ft_lstdelone
+ * Function: ft_strcmp
  * ----------------------------
- * Takes as a parameter a node 'lst' and frees the memory of
- * the node’s content using the function 'del' given
- * as a parameter, then frees the node.
+ * Compares strings 's1' and 's2'.
  *
  * Returns:
- * Nothing.
+ * An integer indicating the result of the comparison:
+ * • 0, if the s1 and s2 are equal;
+ * • a negative value if s1 is less than s2;
+ * • a positive value if s1 is greater than s2.
  */
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
+	int	result;
+
+	while (*s1 == *s2 && *s1 != '\0' && *s2 != '\0')
+	{
+		s1 ++;
+		s2 ++;
+	}
+	result = *s1 - *s2;
+	return (result);
 }

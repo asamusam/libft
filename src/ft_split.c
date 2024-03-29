@@ -6,7 +6,7 @@
 /*   By: asamuilk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:35:26 by asamuilk          #+#    #+#             */
-/*   Updated: 2024/02/19 19:57:56 by asamuilk         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:03:36 by asamuilk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	ft_split_fill(char const *s, char c, char **res)
 /*
  * Function: ft_split
  * ----------------------------
- * Allocates malloc() and returns an array
+ * Allocates with malloc() and returns an array
  * of strings obtained by splitting 's' using the
  * character 'c' as a delimiter. The array must end
  * with a NULL pointer.
